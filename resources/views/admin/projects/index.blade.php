@@ -3,38 +3,50 @@
 @section('content')
     <div class="container mt-5">
         <div class="row">
-            <div class="col-8 col-md-12 ">
-                <div class="row">
-                    <div class="col-12 d-flex justify-content-end">
-                        <a href="{{ route('admin.projects.create') }}"><i class="bi bi-plus-square fs-3"></i></a>
-                    </div>
+            <div class="col-12">
+                <!-- Titolo e pulsante aggiunta progetto -->
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1 class="fw-bold">Project List</h1>
+                    <a href="{{ route('admin.projects.create') }}" class="btn btn-primary btn-lg">
+                        <i class="bi bi-plus-square me-2"></i> Add New Project
+                    </a>
                 </div>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Date</th>
-                            <th>Description</th>
-                            <th>Image Project</th>
-                            <th>Tools</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($projects as $project)
+
+                <!-- Tabella progetti -->
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped align-middle shadow-sm">
+                        <thead class="table-dark">
                             <tr>
-                                <td>{{ $project->id }}</td>
-                                <td>{{ $project->name }}</td>
-                                <td>{{ $project->date }}</td>
-                                <td>{{ $project->description }}</td>
-                                <td>{{ $project->image_project }}</td>
-                                <td class="d-flex">
-                                    <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}">Show</a>
-                                </td>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>Actions</th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach ($projects as $project)
+                                <tr class="border-bottom">
+                                    <td>{{ $project->id }}</td>
+                                    <td class="fw-bold">{{ $project->name }}</td>
+                                    <td>{{ $project->date }}</td>
+                                    <td>{{ Str::limit($project->description, 50) }}</td>
+                                    <td>
+                                        <img src="{{ $project->image_project }}" alt="{{ $project->name }}"
+                                            class="img-thumbnail">
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
+                                            class="btn btn-outline-primary btn-sm">
+                                            <i class="bi bi-eye-fill fs-4"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
