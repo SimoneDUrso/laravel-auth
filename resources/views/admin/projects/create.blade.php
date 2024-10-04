@@ -17,9 +17,12 @@
                                     <div class="mb-4">
                                         <label class="form-label" for="name"><i class="bi bi-pencil-fill me-2"></i>
                                             Nome</label>
-                                        <input class="form-control form-control-lg" type="text" name="name"
-                                            id="name" value="{{ old('name') }}"
+                                        <input class="form-control form-control-lg @error('name') is-invalid @enderror"
+                                            type="text" name="name" id="name" value="{{ old('name') }}"
                                             placeholder="Inserisci il nome del progetto">
+                                        @error('name')
+                                            <div class="text-danger"> {{ $message }} </div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -28,8 +31,11 @@
                                     <div class="mb-4">
                                         <label class="form-label" for="date"><i
                                                 class="bi bi-calendar-date-fill me-2"></i> Data</label>
-                                        <input class="form-control form-control-lg" type="date" name="date"
-                                            id="date" value="{{ old('date') }}">
+                                        <input class="form-control form-control-lg @error('date') is-invalid @enderror"
+                                            type="date" name="date" id="date" value="{{ old('date') }}">
+                                        @error('date')
+                                            <div class="text-danger"> {{ $message }} </div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -38,8 +44,11 @@
                                     <div class="mb-4">
                                         <label class="form-label" for="description"><i
                                                 class="bi bi-chat-right-text-fill me-2"></i> Descrizione</label>
-                                        <textarea name="description" id="description" cols="30" rows="3" class="form-control form-control-lg"
-                                            placeholder="Descrivi il progetto">{{ old('description') }}</textarea>
+                                        <textarea name="description" id="description" cols="30" rows="3"
+                                            class="form-control form-control-lg @error('description') is-invalid @enderror" placeholder="Descrivi il progetto">{{ old('description') }}</textarea>
+                                        @error('description')
+                                            <div class="text-danger"> {{ $message }} </div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -48,9 +57,14 @@
                                     <div class="mb-4">
                                         <label class="form-label" for="image_project"><i class="bi bi-image-fill me-2"></i>
                                             Immagine del Progetto</label>
-                                        <input class="form-control form-control-lg" type="text" name="image_project"
-                                            id="image_project" value="{{ old('image_project') }}"
+                                        <input
+                                            class="form-control form-control-lg @error('image_project') is-invalid @enderror"
+                                            type="text" name="image_project" id="image_project"
+                                            value="{{ old('image_project') }}"
                                             placeholder="Inserisci il link dell'immagine">
+                                        @error('image_project')
+                                            <div class="text-danger"> {{ $message }} </div>
+                                        @enderror
                                     </div>
                                 </div>
 
