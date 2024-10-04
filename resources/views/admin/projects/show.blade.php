@@ -7,7 +7,7 @@
                 <div class="card shadow-lg border-0 rounded-3">
                     <div class="card-body p-5">
                         <!-- Titolo -->
-                        <h2 class="display-6 text-center mb-4 text-uppercase fw-bold">Dettagli Fumetto</h2>
+                        <h2 class="display-6 text-center mb-4 text-uppercase fw-bold">Dettagli Progetto</h2>
 
                         <!-- Tabella dettagli progetto -->
                         <table class="table table-bordered table-hover shadow-sm rounded">

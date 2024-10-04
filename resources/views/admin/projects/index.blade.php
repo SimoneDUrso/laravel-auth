@@ -41,6 +41,8 @@
                                             class="btn btn-outline-primary btn-sm">
                                             <i class="bi bi-eye-fill fs-4"></i>
                                         </a>
+                                        <a href="{{ route('admin.projects.edit', ['project' => $project->id]) }}"
+                                            class="btn btn-outline-warning btn-sm"><i class="bi bi-pen fs-4"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
