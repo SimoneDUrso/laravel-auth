@@ -43,6 +43,15 @@
                                         </a>
                                         <a href="{{ route('admin.projects.edit', ['project' => $project->id]) }}"
                                             class="btn btn-outline-warning btn-sm"><i class="bi bi-pen fs-4"></i></a>
+
+                                        <form action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}"
+                                            method="POST" class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-outline-danger btn-sm delete-Project">
+                                                <i class="bi bi-trash fs-4"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
@@ -52,4 +61,5 @@
             </div>
         </div>
     </div>
+    @include('admin.projects.modal_project')
 @endsection
