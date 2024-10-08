@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name', 20);
             $table->date('date');
             $table->text('description')->nullable();
-            $table->string('image_project')->nullable();
+            $table->string('image_project')->nullable()->default('https://placehold.co/500x500?text=Immagine-non-disponibile');
             $table->string('slug');
             $table->timestamps();
         });

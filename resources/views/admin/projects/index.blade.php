@@ -32,10 +32,16 @@
                                     <td class="fw-bold">{{ $project->name }}</td>
                                     <td>{{ $project->date }}</td>
                                     <td>{{ Str::limit($project->description, 50) }}</td>
-                                    <td>
-                                        <img src="{{ $project->image_project }}" alt="{{ $project->name }}"
-                                            class="img-thumbnail">
-                                    </td>
+                                    @if (Str::startsWith($project->image_project, 'https'))
+                                        <td>
+                                            <img src="{{ $project->image_project }}" alt="{{ $project->name }}">
+                                        </td>
+                                    @else
+                                        <td>
+                                            <img src="{{ asset('storage/' . $project->image_project) }}"
+                                                alt="{{ $project->name }}" class="img-thumbnail">
+                                        </td>
+                                    @endif
                                     <td>
                                         <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
                                             class="btn btn-outline-primary btn-sm">

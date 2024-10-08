@@ -9,7 +9,7 @@
                         <h3 class="mb-0 text-center">Create New Project</h3>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('admin.projects.store') }}" method="POST">
+                        <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <!-- Nome Progetto -->
@@ -59,7 +59,7 @@
                                             Immagine del Progetto</label>
                                         <input
                                             class="form-control form-control-lg @error('image_project') is-invalid @enderror"
-                                            type="text" name="image_project" id="image_project"
+                                            type="file" name="image_project" id="image_project"
                                             value="{{ old('image_project') }}"
                                             placeholder="Inserisci il link dell'immagine">
                                         @error('image_project')

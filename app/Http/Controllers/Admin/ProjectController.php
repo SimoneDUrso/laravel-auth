@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 
 class ProjectController extends Controller
@@ -44,6 +45,11 @@ class ProjectController extends Controller
         $form_data = $request->all();
 
         $form_data['slug'] = Project::generateSlug($form_data['name']);
+
+        if ($request->hasFile('image_project')) {
+            $path = Storage::disk('public')->put('image_project', $form_data['image_project']);
+            $form_data['image_project'] = $path;
+        }
 
         $project->fill($form_data);
 
