@@ -26,10 +26,16 @@
                                 </tr>
                                 <tr>
                                     <th class="bg-light text-end">Immagine relativa al progetto:</th>
-                                    <td>
-                                        <img src="{{ $project->image_project }}" alt="{{ $project->name }}"
-                                            class="img-fluid rounded shadow-sm" style="max-width: 300px;">
-                                    </td>
+                                    @if (Str::startsWith($project->image_project, 'https'))
+                                        <td>
+                                            <img src="{{ $project->image_project }}" alt="{{ $project->name }}">
+                                        </td>
+                                    @else
+                                        <td>
+                                            <img src="{{ asset('storage/' . $project->image_project) }}"
+                                                alt="{{ $project->name }}" class="img-thumbnail">
+                                        </td>
+                                    @endif
                                 </tr>
                             </tbody>
                         </table>
