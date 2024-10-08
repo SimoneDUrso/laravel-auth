@@ -39,8 +39,7 @@
 
                 <div class="col-12 col-md-6">
                     <label for="image_project" class="form-label">Immagine progetto</label>
-                    <input value="{{ old('image_project', $project->image_project) }}" type="text"
-                        class="form-control rounded-pill" name="image_project" id="image_project"
+                    <input type="file" class="form-control rounded-pill" name="image_project" id="image_project"
                         placeholder="URL Immagine progetto">
                     @error('image_project')
                         <div class="text-danger"> {{ $message }} </div>

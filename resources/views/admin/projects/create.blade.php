@@ -60,7 +60,6 @@
                                         <input
                                             class="form-control form-control-lg @error('image_project') is-invalid @enderror"
                                             type="file" name="image_project" id="image_project"
-                                            value="{{ old('image_project') }}"
                                             placeholder="Inserisci il link dell'immagine">
                                         @error('image_project')
                                             <div class="text-danger"> {{ $message }} </div>
